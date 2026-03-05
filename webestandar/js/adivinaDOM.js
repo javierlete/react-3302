@@ -1,6 +1,6 @@
 'use strict';
 
-let cuadroTexto, spanTexto, numeroPensado;
+let cuadroTexto, spanTexto, numeroPensado, lista;
 
 window.addEventListener('DOMContentLoaded', alCargar);
 
@@ -8,6 +8,7 @@ function alCargar() {
     cuadroTexto = document.getElementById('numero'); //document.querySelector('#numero');
     spanTexto = document.querySelector('#resultado');
     const boton = document.querySelector('#probar');
+    lista = document.getElementById('listado');
 
     // cuadroTexto.value = 'Prueba';
     spanTexto.innerText = 'Hola desde JavaScript';
@@ -28,26 +29,36 @@ function pensarNumero() {
 function adivina() {
     const numeroUsuario = +cuadroTexto.value;
 
+    let resultado;
+
     if (isNaN(numeroUsuario)) {
-        spanTexto.innerText = 'Introduce un número la próxima vez';
+        resultado = 'Introduce un número la próxima vez';
     }
 
     // Si el número pensado es igual que el del usuario
     if (numeroUsuario === numeroPensado) {
         // ... mostrar 'has ganado'
-       spanTexto.innerText = 'Has ganado';
+       resultado = 'Has ganado';
        pensarNumero();
     }
     // Si no, ver si el número pensado es menor que el del usuario
     else if (numeroPensado < numeroUsuario) {
         // ... mostrar 'es menor'
-        spanTexto.innerText = 'Es menor';
+        resultado = 'Es menor';
     }
     // Si no
     else {
         // ... mostrar 'es mayor'
-        spanTexto.innerText = 'Es mayor';
+        resultado = 'Es mayor';
     }
+
+    spanTexto.innerText = resultado;
+
+    const li = document.createElement('li');
+
+    li.innerText = resultado + ' que ' + numeroUsuario;
+
+    lista.appendChild(li);
 
     cuadroTexto.value = '';
     cuadroTexto.focus();
