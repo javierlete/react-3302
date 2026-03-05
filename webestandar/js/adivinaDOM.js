@@ -39,17 +39,20 @@ function adivina() {
     if (numeroUsuario === numeroPensado) {
         // ... mostrar 'has ganado'
        resultado = 'Has ganado';
+       cuadroTexto.className = 'igual';
        pensarNumero();
     }
     // Si no, ver si el número pensado es menor que el del usuario
     else if (numeroPensado < numeroUsuario) {
         // ... mostrar 'es menor'
         resultado = 'Es menor';
+        cuadroTexto.className = 'menor';
     }
     // Si no
     else {
         // ... mostrar 'es mayor'
         resultado = 'Es mayor';
+        cuadroTexto.className = 'mayor';
     }
 
     spanTexto.innerText = resultado;
