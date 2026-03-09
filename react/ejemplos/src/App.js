@@ -1,8 +1,15 @@
 import './App.css';
+import Cabecera from './componentes/Cabecera';
+import Contenido from './componentes/Contenido';
+import Pie from './componentes/Pie';
 
 function App() {
   return (
-    <h1>Hola Mundo</h1>
+    <>
+      <Cabecera />
+      <Contenido />
+      <Pie />
+    </>
   );
 }
 
