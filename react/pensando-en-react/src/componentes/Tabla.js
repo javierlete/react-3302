@@ -1,7 +1,9 @@
 import FilaCategoria from "./FilaCategoria";
 import FilaProducto from "./FilaProducto";
 
-export default function Tabla() {
+export default function Tabla({ productos }) {
+    let categoria;
+
     return (
         <table>
             <thead>
@@ -11,14 +13,12 @@ export default function Tabla() {
                 </tr>
             </thead>
             <tbody>
-                <FilaCategoria titulo="Fruta" />
-                <FilaProducto nombre="Plátano" precio="1" />
-                <FilaProducto nombre="Naranja" precio="1" />
-                <FilaProducto nombre="Maracuyá" precio="1" sinStock={true} />
-                <FilaCategoria titulo="Verduras" />
-                <FilaProducto nombre="Espinaca" precio="1" sinStock={true}  />
-                <FilaProducto nombre="Guisantes" precio="1"  />
-                
+                {productos.map(producto =>
+                    <>
+                        {producto.category !== categoria ? <FilaCategoria titulo={categoria = producto.category} /> : ''}
+                        <FilaProducto nombre={producto.name} precio={producto.price} sinStock={!producto.stocked} />
+                    </>
+                )}
             </tbody>
         </table>
     );
