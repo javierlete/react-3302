@@ -8,10 +8,8 @@ export default function Formulario() {
 
     return (
         <div className="formulario">
-            <LabelInput etiqueta="Nombre" identificador="nombre" />
+            <LabelInput etiqueta="Nombre" identificador="nombre" valor={nombre} onCambio={valor => setNombre(valor)} />
             <LabelInput etiqueta="Apellido" identificador="apellido" />
-
-            <input placeholder="Nombre" value={nombre} onInput={e => setNombre(e.target.value)} />
 
             <button onClick={() => setSaludo('Hola ' + nombre)}>Saludar</button>
 
