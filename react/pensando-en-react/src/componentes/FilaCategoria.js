@@ -1,8 +1,8 @@
-export default function FilaCategoria() {
+export default function FilaCategoria({titulo}) {
     return (
         <tr>
             <th colSpan="2">
-                Fruta
+                {titulo}
             </th>
         </tr>
     );

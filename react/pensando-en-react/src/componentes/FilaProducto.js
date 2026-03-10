@@ -1,13 +1,13 @@
-export default function FilaProducto() {
+export default function FilaProducto({nombre, precio, sinStock}) {
     return (
         <tr>
             <td>
-                <span style={{ color: 'red' }}>
-                    Maracuyá
+                <span style={{ color: sinStock ? 'red' : 'black' }}>
+                    {nombre}
                 </span>
             </td>
             <td>
-                2€
+                {precio}€
             </td>
         </tr>
     );
